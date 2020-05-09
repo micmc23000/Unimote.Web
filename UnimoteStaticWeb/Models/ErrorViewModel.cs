@@ -1,6 +1,6 @@
 using System;
 
-namespace Unimote.Web.Models
+namespace UnimoteStaticWeb.Models
 {
     public class ErrorViewModel
     {
