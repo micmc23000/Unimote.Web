@@ -25,12 +25,13 @@ namespace UnimoteProcessTest
         {
 
             var expectedOutput = "Python C# Test"+Environment.NewLine;
-            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "test.py");
-            string compilerPath = @"python.exe";
+            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "test2.py");
+            string compilerPath = @"python";
+            string args = "Michael";
 
             Process process = new Process
             {
-                StartInfo = new ProcessStartInfo(compilerPath, fileName)
+                StartInfo = new ProcessStartInfo(compilerPath, $"{fileName} {args}")
                 {
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
@@ -40,6 +41,7 @@ namespace UnimoteProcessTest
             process.Start();
 
             string output = process.StandardOutput.ReadToEnd();
+            Console.Write(output);
             process.WaitForExit();
 
             Assert.AreEqual(output, expectedOutput);
