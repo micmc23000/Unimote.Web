@@ -4,8 +4,16 @@ using System.IO;
 
 namespace ConsoleAppTest
 {
-    class Program
+    class pyth
     {
+        static void Main1()
+        {
+            Console.WriteLine("Press the button you want the signal code for?");
+
+            String code = Console.ReadLine();//Should be IRScanner.Read();
+
+            Console.WriteLine($"code is {code}");
+        }
         static void Main()
         {
             string program = "test2.py";
