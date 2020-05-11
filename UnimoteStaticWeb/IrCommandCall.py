@@ -33,7 +33,7 @@ def main():
     try:
         for bit in signal:
                 print(bit)
-                time.sleep(1)
+                time.sleep(.01)
                 if bit=="1":
                     GPIO.output(33, 1)
                 if bit=="0":
