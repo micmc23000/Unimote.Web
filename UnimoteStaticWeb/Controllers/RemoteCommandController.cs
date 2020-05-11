@@ -110,17 +110,25 @@ namespace UnimoteStaticWeb.Controllers
 			try
 			{
 				var remoteCommand = RemoteCommandMockRepository.Singleton.GetRemoteCommandById(id);
+				string binaryCode = ToBinaryCode(remoteCommand.SignalCode);
+
 				var pythonCaller = new PythonCaller();
-
-				var output = pythonCaller.Execute(remoteCommand.SignalCode);
-
+				var output = pythonCaller.Execute(binaryCode);
 				Console.WriteLine(output);
+
 				return RedirectToAction(nameof(Index));
 			}
 			catch
 			{
 				return View("Error");
 			}
+		}
+
+		private static string ToBinaryCode(string signalCode)
+		{
+			const int signalLenght = 8;
+
+			return Convert.ToString(int.Parse(signalCode), 2).PadLeft(signalLenght, '0');
 		}
 	}
 }

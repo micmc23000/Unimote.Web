@@ -15,25 +15,32 @@
             {
                 Id = 1,
                 Name = "LED Lights",
-                SignalCode = "x748ab44e",
+                SignalCode = "102",
             };
             var kettleLightRemoteCommand = new RemoteCommand
             {
                 Id = 2,
                 Name = "Kettle",
-                SignalCode = "x4328ab44e",
+                SignalCode = "253",
             };
             var tvLightRemoteCommand = new RemoteCommand
             {
                 Id = 3,
                 Name = "TV",
-                SignalCode = "x748ab43c4e",
+                SignalCode = "156",
+            };
+            var selfDestructCommand = new RemoteCommand
+            {
+                Id = 4,
+                Name = "Self Destruct",
+                SignalCode = "1",
             };
             remoteCommands = new List<RemoteCommand>
             {
                 ledLightRemoteCommand,
                 kettleLightRemoteCommand,
                 tvLightRemoteCommand,
+                selfDestructCommand,
             };
         }
         public static RemoteCommandMockRepository Singleton { get; private set; } = new RemoteCommandMockRepository();
