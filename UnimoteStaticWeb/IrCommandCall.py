@@ -18,8 +18,8 @@ if output_pin is None:
 def main():
     # Pin Setup:
     # Board pin-numbering scheme
-    #signal= sys.argv[1]
-    signal = "10010110"
+    signal= sys.argv[1]
+    #signal = "10010110"
     
     GPIO.setmode(GPIO.BOARD)
     # set pin as an output pin with optional initial state of HIGH
@@ -33,14 +33,11 @@ def main():
     try:
         for bit in signal:
                 print(bit)
+                time.sleep(1)
                 if bit=="1":
-                    print("zero Volts")
-                    time.sleep(.01)
                     GPIO.output(33, 1)
                 if bit=="0":
-                    print("3 volts")
                     GPIO.output(33, 0)
-                    time.sleep(.01)
     finally:
          GPIO.cleanup()
 
