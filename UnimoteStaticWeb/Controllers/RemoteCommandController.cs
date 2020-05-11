@@ -1,5 +1,6 @@
 ﻿using ConsoleAppTest;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using Unimote;
 using Unimote.MockDb;
 using UnimoteStaticWeb.Models;
@@ -111,7 +112,9 @@ namespace UnimoteStaticWeb.Controllers
 				var remoteCommand = RemoteCommandMockRepository.Singleton.GetRemoteCommandById(id);
 				var pythonCaller = new PythonCaller();
 
-				pythonCaller.Execute(remoteCommand.SignalCode);
+				var output = pythonCaller.Execute(remoteCommand.SignalCode);
+
+				Console.WriteLine(output);
 				return RedirectToAction(nameof(Index));
 			}
 			catch
